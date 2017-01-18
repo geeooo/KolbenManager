@@ -1,0 +1,109 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Kolben.Views.Restaurant.NSPurchases.PurchaseDetailPage"
+    x:Name="PurchaseDetailPageElement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Views.Restaurant.NSPurchases"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Kolben.ViewModels"
+    xmlns:controls="using:Kolben.Controls"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="PurchaseDetailItemTemplate"                                         >
+            <Grid x:ConnectionId='2'>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="66" />
+                    <ColumnDefinition Width="66" />
+                    <ColumnDefinition Width="66" />
+                    <ColumnDefinition Width="200" />
+                    <ColumnDefinition Width="40" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Margin="10,0,0,0" Grid.Column="0" Text="{Binding Product.Name}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <TextBlock  Margin="10,0,0,0" Grid.Column="1" Text="{Binding Price}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <TextBlock  Margin="10,0,0,0" Grid.Column="2" Text="{Binding UnitQuantity}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <TextBlock  Margin="10,0,0,0" Grid.Column="3" Text="{Binding KgQuantity}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <TextBlock  Margin="10,0,0,0" Grid.Column="4" Text="{Binding TypeofTVA.Name}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <controls:IconButton x:ConnectionId='3' Margin="2,0,0,0" Grid.Column="5" ToolTipService.ToolTip="Supprimer" Command="{Binding DataContext.DeletePurchaseDetailCommand, ElementName=PurchaseDetailPageElement}"                             Icon="Delete" Style="{StaticResource IconButtonStyle}" Padding="5" />
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <StackPanel Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <!-- Purchase date -->
+        <DatePicker x:ConnectionId='4' x:Name="PurchaseDatePicker" Margin="10,5" Header="Date d'achat"  Date="{Binding Purchase.PurchaseDate, Converter={StaticResource DatetimeToDatetimeOffSetConverter}, Mode=TwoWay}" />
+
+        <Grid>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="auto" />
+                <ColumnDefinition Width="auto" />
+            </Grid.ColumnDefinitions>
+            <StackPanel Grid.Column="0">
+                <!-- Name -->
+                <TextBox Margin="10,5" Header="Désignation" Text="{Binding Purchase.Label, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Left" />
+
+                <!-- AccountingAccounts -->
+                <ComboBox Margin="10,5" Header="Fournisseur" ItemsSource="{Binding AccountingAccounts}" SelectedValuePath="Id" SelectedItem="{Binding Purchase.ProviderAccountingAccount, Mode=TwoWay}" DisplayMemberPath="Name" Width="200" HorizontalAlignment="Left" />
+                <ComboBox Margin="10,5" Header="Provenance Argent" ItemsSource="{Binding AccountingAccounts}" SelectedValuePath="Id" SelectedItem="{Binding Purchase.DebitAccountingAccount, Mode=TwoWay}" DisplayMemberPath="Name" Width="200" HorizontalAlignment="Left" />
+
+                <TextBlock Text="Détails des achats" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+                <ListView x:ConnectionId='5' x:Name="PurchasesDetailsList"
+                  Margin="10,5"
+                  Header="Compte débiteur" 
+                  ItemsSource="{Binding Purchase.PurchaseDetails}"
+                  ItemTemplate="{StaticResource PurchaseDetailItemTemplate}"
+                  ItemContainerStyle="{StaticResource BorderedListItemContainerStyle}">
+                    <ListView.Template>
+                        <ControlTemplate>
+                            <Grid HorizontalAlignment="Left">
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="Auto"/>
+                                    <RowDefinition Height="*"/>
+                                </Grid.RowDefinitions>
+                                <Grid Grid.Row="0" VerticalAlignment="Center" BorderBrush="{StaticResource SystemControlBackgroundAccentBrush}" BorderThickness="0 0 0 3">
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="200" />
+                                        <ColumnDefinition Width="66" />
+                                        <ColumnDefinition Width="66" />
+                                        <ColumnDefinition Width="66" />
+                                        <ColumnDefinition Width="200" />
+                                    </Grid.ColumnDefinitions>
+                                    <TextBlock Margin="2,0,0,0" Grid.Column="0" Text="Produit" Style="{StaticResource CaptionTextBlockStyle}" />
+                                    <TextBlock Margin="2,0,0,0" Grid.Column="1" Text="Prix (TTC)" Style="{StaticResource CaptionTextBlockStyle}" />
+                                    <TextBlock Margin="2,0,0,0" Grid.Column="2" Text="Unité(s)" Style="{StaticResource CaptionTextBlockStyle}" />
+                                    <TextBlock Margin="2,0,0,0" Grid.Column="3" Text="Poids (kg)" Style="{StaticResource CaptionTextBlockStyle}" />
+                                    <TextBlock Margin="2,0,0,0" Grid.Column="4" Text="TVA" Style="{StaticResource CaptionTextBlockStyle}" />
+                                </Grid>
+                                <ContentControl Grid.Row="1" IsTabStop="True" TabNavigation="Cycle">
+                                    <Grid Margin="0,5">
+                                        <Grid.ColumnDefinitions>
+                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="66" />
+                                            <ColumnDefinition Width="66" />
+                                            <ColumnDefinition Width="66" />
+                                            <ColumnDefinition Width="200" />
+                                            <ColumnDefinition Width="40" />
+                                            <ColumnDefinition Width="40" />
+                                        </Grid.ColumnDefinitions>
+                                        <AutoSuggestBox x:ConnectionId='6' x:Name="ProductSuggestBox" Margin="2,0,0,0" Grid.Column="0" Width="198" Text="{Binding NewPurchaseDetail.Product.Name, Mode=TwoWay}" DisplayMemberPath="Name"                                         TextMemberPath="Name"                                                       ItemsSource="{Binding Products}" PlaceholderText="Sélectionner..." QueryIcon="Find" VerticalAlignment="Center"/>
+                                        <TextBox  Margin="2,0,0,0" Grid.Column="1" ToolTipService.ToolTip="Prix total TTC" Text="{Binding NewPurchaseDetail.Price, Mode=TwoWay, Converter={StaticResource DecimalToStringConverter}}" PlaceholderText="Prix" />
+                                        <TextBox  Margin="2,0,0,0" Grid.Column="2" Text="{Binding NewPurchaseDetail.UnitQuantity, Mode=TwoWay, Converter={StaticResource DecimalToStringConverter}}" PlaceholderText="Unité" />
+                                        <TextBox  Margin="2,0,0,0" Grid.Column="3" Text="{Binding NewPurchaseDetail.KgQuantity, Mode=TwoWay, Converter={StaticResource DecimalToStringConverter}}" PlaceholderText="Poids" />
+                                        <ComboBox  Margin="2,0,0,0" Grid.Column="4" Width="198" ItemsSource="{Binding TypeofTVAs}" PlaceholderText="Sélectionner..." SelectedItem="{Binding NewPurchaseDetail.TypeofTVA, Mode=TwoWay}" DisplayMemberPath="Name" SelectedValuePath="Id" VerticalAlignment="Center"/>
+                                        <controls:IconButton Margin="2,0,0,0" Grid.Column="5" ToolTipService.ToolTip="Ajouter" Command="{Binding AddNewPurchaseDetailCommand}" Icon="Add" Style="{StaticResource IconButtonStyle}" Padding="5" />
+                                        <controls:IconButton Margin="2,0,0,0" Grid.Column="6" ToolTipService.ToolTip="Effacer" Command="{Binding ClearNewPurchaseDetailCommand}" Icon="Clear" Style="{StaticResource IconButtonStyle}" Padding="5" />
+                                    </Grid>
+                                </ContentControl>                                
+                                <ItemsPresenter Grid.Row="2"></ItemsPresenter>
+                            </Grid>
+                        </ControlTemplate>
+                    </ListView.Template>
+                </ListView>
+            </StackPanel>
+        </Grid>
+    </StackPanel>
+</Page>
+

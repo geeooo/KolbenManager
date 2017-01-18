@@ -1,0 +1,2 @@
+C:\Users\geoff\Documents\Sources\Kolben\Kolben\Kolben.csproj;x86
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\KolbenService.csproj;x86

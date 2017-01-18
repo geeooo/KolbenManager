@@ -1,0 +1,17 @@
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\bin\x64\Debug\KolbenService.dll
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\bin\x64\Debug\KolbenService.pdb
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\bin\x64\Debug\KolbenService.pri
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\KolbenService.dll
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\KolbenService.pdb
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\priconfig.xml
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\priconfig.xml.intermediate
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\layout.resfiles
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\layout.resfiles.intermediate
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\resources.resfiles
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\resources.resfiles.intermediate
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\pri.resfiles
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\pri.resfiles.intermediate
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\qualifiers.txt
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\qualifiers.txt.intermediate
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\MultipleQualifiersPerDimensionFound.txt
+C:\Users\geoff\Documents\Sources\Kolben\KolbenService\obj\x64\Debug\KolbenService.csprojResolveAssemblyReference.cache

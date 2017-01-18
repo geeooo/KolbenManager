@@ -1,0 +1,94 @@
+﻿<Page
+    x:Class="Kolben.Views.Restaurant.NSAccountingAccount.AccountingAccountDetailPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Views.Restaurant.NSAccountingAccount"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:viewModels="using:Kolben.ViewModels"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="AccountingAccountEntryTemplate"                                                 >
+            <Grid x:ConnectionId='1'>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="40" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                    <ColumnDefinition Width="100" />
+                </Grid.ColumnDefinitions>
+                <Border x:ConnectionId='2' Margin="2" Grid.Column="0" Height="30" Width="30"                                          >
+                    <FontIcon x:ConnectionId='3' x:Name="Glyph" FontSize="16"                                Foreground="{StaticResource WhiteForegroundBrush}" VerticalAlignment="Center" HorizontalAlignment="Center"/>
+                </Border>
+                <TextBlock Margin="10,0,0,0" Grid.Column="1" Text="{Binding DateString}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <TextBlock Margin="10,0,0,0" Grid.Column="2" Text="{Binding Label}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                <TextBlock Margin="10,0,0,0" Grid.Column="3" Text="{Binding Amount}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="220" />
+            <ColumnDefinition Width="*" />
+        </Grid.ColumnDefinitions>
+        <StackPanel Grid.Column="0">
+            <!-- Name -->
+            <TextBlock Text="Nom" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <TextBox Text="{Binding AccountingAccount.Name, Mode=TwoWay}" Width="200" HorizontalAlignment="Left" />
+
+            <!-- TypeofAccountingAccount -->
+            <TextBlock Text="Type de compte" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <ComboBox ItemsSource="{Binding TypeofAccountingAccounts}" SelectedItem="{Binding AccountingAccount.TypeofAccountingAccount, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" SelectedValue="{Binding AccountingAccount.TypeofAccountingAccount.Id}" SelectedValuePath="Id" DisplayMemberPath="Name" Width="200" HorizontalAlignment="Left" />
+
+            <!-- AccountNumber -->
+            <TextBlock Text="Numéro de compte" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left">
+                <TextBox Text="{Binding AccountingAccount.TypeofAccountingAccount.Prefix}" Width="60" IsEnabled="False" HorizontalAlignment="Left" />
+                <TextBox Text="{Binding AccountingAccount.AccountNumber, Mode=TwoWay}" Width="136" HorizontalAlignment="Left" />
+            </StackPanel>
+        </StackPanel>
+        <Grid Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+                <RowDefinition Height="auto" />
+            </Grid.RowDefinitions>
+            <TextBlock Grid.Row="0" Text="Général" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <StackPanel Grid.Row="1" Margin="10" HorizontalAlignment="Left" Width="auto" MinWidth="100" Background="{StaticResource ContentDialogBackground}" Padding="5">
+                <TextBlock Text="{Binding AccountingAccount.Balance, Converter={StaticResource EuroSymbolConverter}}" HorizontalAlignment="Center" Style="{StaticResource SubheaderTextBlockStyle}" Foreground="{StaticResource SystemControlForegroundAccentBrush}" />
+                <TextBlock Text="Balance" HorizontalAlignment="Center" Style="{StaticResource BodyTextBlockStyle}" />
+            </StackPanel>
+            <TextBlock Grid.Row="2" Text="Opérations" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <ListView x:ConnectionId='4' Grid.Row="3" x:Name="AccountingAccountEntryList"
+                  ItemsSource="{Binding AccountingAccount.AccountingAccountEntries}"
+                  ItemTemplate="{StaticResource AccountingAccountEntryTemplate}"
+                  ItemContainerStyle="{StaticResource BorderedListItemContainerStyle}">
+                <ListView.Template>
+                    <ControlTemplate>
+                        <Grid HorizontalAlignment="Left">
+                            <Grid.RowDefinitions>
+                                <RowDefinition Height="Auto"/>
+                                <RowDefinition Height="*"/>
+                            </Grid.RowDefinitions>
+                            <Grid Grid.Row="0" VerticalAlignment="Center" BorderBrush="{StaticResource SystemControlBackgroundAccentBrush}" BorderThickness="0 0 0 3">
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="40" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="100" />
+                                    <ColumnDefinition Width="100" />
+                                </Grid.ColumnDefinitions>
+                                <TextBlock Grid.Column="1" Text="Date" Style="{StaticResource CaptionTextBlockStyle}" />
+                                <TextBlock Grid.Column="2" Text="Intitulé" Style="{StaticResource CaptionTextBlockStyle}" />
+                                <TextBlock Grid.Column="3" Text="Montant" Style="{StaticResource CaptionTextBlockStyle}" />
+                            </Grid>
+                            <ItemsPresenter Grid.Row="1"></ItemsPresenter>
+                        </Grid>
+                    </ControlTemplate>
+                </ListView.Template>
+            </ListView>
+        </Grid>
+    </Grid>
+</Page>
+

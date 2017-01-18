@@ -1,0 +1,26 @@
+﻿<Page
+    x:Class="Kolben.Views.Restaurant.Recipes.AddRecipeProductPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Views.Farm.Recipes"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ContentDialogBackground}" Margin="10">
+        <StackPanel Grid.Column="0">
+            <!-- Product -->
+            <TextBlock Text="Produit" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <AutoSuggestBox x:ConnectionId='1' Text="{Binding CurrentRecipeProduct.Product, Mode=TwoWay, UpdateSourceTrigger=Default}" ItemsSource="{Binding Products}"                                               DisplayMemberPath="Name" Width="200" HorizontalAlignment="Left" />
+
+            <!--Quantité-->
+            <TextBlock Text="Unité" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <TextBox Text="{Binding CurrentRecipeProduct.UnitQuantity, TargetNullValue=0, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Left" />
+
+            <!--Quantité-->
+            <TextBlock Text="Poid (Kg)" Margin="0 10 0 5" Style="{StaticResource BaseTextBlockStyle}" />
+            <TextBox Text="{Binding CurrentRecipeProduct.KGQuantity, Converter={StaticResource DecimalToStringConverter}, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Left" />
+        </StackPanel>
+    </Grid>
+</Page>
+

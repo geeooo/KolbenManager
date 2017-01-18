@@ -1,0 +1,22 @@
+﻿<Page
+    x:Class="Kolben.Views.Restaurant.NSPurchases.AddPurchasePage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Views.Restaurant.NSPurchases"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <StackPanel Background="{ThemeResource ContentDialogBackground}" Margin="10">
+        <!-- Purchase date -->
+        <DatePicker Margin="10,5" Header="Date d'achat"  Date="{Binding Purchase.PurchaseDate, Converter={StaticResource DatetimeToDatetimeOffSetConverter}, Mode=TwoWay}" />
+
+        <!-- Name -->
+        <TextBox Margin="10,5" Header="Désignation" Text="{Binding Purchase.Label, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}" Width="200" HorizontalAlignment="Left" />
+
+        <!-- AccountingAccounts -->
+        <ComboBox Margin="10,5" Header="Fournisseur" ItemsSource="{Binding AccountingAccounts}" SelectedValuePath="Id" SelectedItem="{Binding Purchase.ProviderAccountingAccount, Mode=TwoWay}" DisplayMemberPath="Name" Width="200" HorizontalAlignment="Left" />
+        <ComboBox Margin="10,5" Header="Provenance Argent" ItemsSource="{Binding AccountingAccounts}" SelectedValuePath="Id" SelectedItem="{Binding Purchase.DebitAccountingAccount, Mode=TwoWay}" DisplayMemberPath="Name" Width="200" HorizontalAlignment="Left" />
+    </StackPanel>
+</Page>
+

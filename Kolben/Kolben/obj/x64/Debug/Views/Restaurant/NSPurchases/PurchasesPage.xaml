@@ -1,0 +1,81 @@
+﻿<Page x:ConnectionId='1'
+    x:Class="Kolben.Views.Restaurant.NSPurchases.PurchasesPage"
+    x:Name="PurchasesPageElement"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Views.Restaurant.NSPurchases"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:viewModels="using:Kolben.ViewModels"
+    xmlns:controls="using:Kolben.Controls"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d">
+
+    <Page.Resources>
+        <DataTemplate x:Key="PurchaseItemTemplate"                                   >
+            <Grid>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="150" />
+                    <ColumnDefinition Width="150" />
+                </Grid.ColumnDefinitions>
+                <TextBlock  Margin="10,0,0,0" Grid.Column="0" Text="{Binding PurchaseDateString}" Style="{StaticResource BodyTextBlockStyle}" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+
+
+                <StackPanel Grid.Column="1" Margin="10,0,0,0">
+                    <TextBlock Text="{Binding ProviderAccountingAccount.Name}" Style="{StaticResource BodyTextBlockStyle}" FontSize="14" FontWeight="SemiBold" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                    <TextBlock Text="{Binding Label}" Style="{StaticResource BodyTextBlockStyle}" FontSize="12" TextWrapping="NoWrap" VerticalAlignment="Center"/>
+                </StackPanel>
+            </Grid>
+        </DataTemplate>
+    </Page.Resources>
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="auto" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+        <controls:DynamicCommandBar Grid.Row="0" IsOpen="True" IsSticky="True" ActionDatas="{Binding DataContext.Actions, ElementName=PurchasesPageElement}" />
+        <TextBlock Grid.Row="1" Margin="10" Text="Gestion des achats" Style="{StaticResource SubheaderTextBlockStyle}" />
+        <Grid
+            Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+            <Grid Margin="0 0 10 0" Grid.Column="0">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="*"/>
+                    <ColumnDefinition Width="auto"/>
+                </Grid.ColumnDefinitions>
+                <ListView x:ConnectionId='3' x:Name="PurchasesList"
+                  Grid.Row="1"
+                  ItemsSource="{Binding Purchases}"
+                  Grid.Column="0"
+                  ItemTemplate="{StaticResource PurchaseItemTemplate}"
+                  SelectedItem="{Binding CurrentPurchase, Mode=TwoWay}"
+                  ItemContainerStyle="{StaticResource BorderedListItemContainerStyle}">
+                </ListView>
+                <Border Margin="10 5 0 5" Grid.Column="1" Grid.RowSpan="2" Background="{StaticResource ShadesDarker1AccentBrush}" Width="1" Opacity="0.3" />
+            </Grid>
+
+            <ScrollViewer Grid.Column="1" HorizontalScrollMode="Enabled" HorizontalScrollBarVisibility="Visible" VerticalScrollBarVisibility="Disabled" VerticalScrollMode="Disabled">
+                <Frame x:ConnectionId='2' x:Name="PurchaseFrame"
+                   Margin="0,4,0,0">
+                    <Frame.ContentTransitions>
+                        <TransitionCollection>
+                            <NavigationThemeTransition>
+                                <NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                                    <EntranceNavigationTransitionInfo/>
+                                </NavigationThemeTransition.DefaultNavigationTransitionInfo>
+                            </NavigationThemeTransition>
+                        </TransitionCollection>
+                    </Frame.ContentTransitions>
+                </Frame>
+            </ScrollViewer>
+        </Grid>
+    </Grid>
+</Page>
+

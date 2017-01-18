@@ -1,0 +1,29 @@
+﻿<Page
+    x:Class="Kolben.Views.Restaurant.NSCashRegister.TablesPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Views.Restaurant.NSCashRegister"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:controls="using:Kolben.Controls"
+    mc:Ignorable="d">
+
+    <Grid Background="{ThemeResource ApplicationPageBackgroundThemeBrush}">
+        <Grid Width="203" Height="160">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="100" />
+                <RowDefinition Height="60"/>
+            </Grid.RowDefinitions>
+            <StackPanel Grid.Row="0" Background="{StaticResource AccentBrush}">
+                <TextBlock Text="L'ingénieur" Margin="10 5" Foreground="{StaticResource WhiteForegroundBrush}" Style="{StaticResource TitleTextBlockStyle}" />
+                <TextBlock Text="10 personnes" Margin="10 5" Foreground="{StaticResource WhiteForegroundBrush}" Style="{StaticResource BaseTextBlockStyle}" />
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" Grid.Row="1" Background="LightGray">
+                <AppBarButton IsCompact="False" Label="Conso." Icon="Add" />
+                <AppBarButton IsCompact="False" Label="Addition" Icon="Calculator" />
+                <AppBarButton IsCompact="False" Label="Supprimer" Icon="Delete" Background="Red" Foreground="{StaticResource WhiteForegroundBrush}" />
+            </StackPanel>
+        </Grid>
+    </Grid>
+</Page>

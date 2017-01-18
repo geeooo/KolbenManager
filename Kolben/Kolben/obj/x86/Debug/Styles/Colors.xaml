@@ -1,0 +1,16 @@
+﻿<ResourceDictionary
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:local="using:Kolben.Styles">
+
+    <SolidColorBrush x:Key="WhiteForegroundBrush" Color="White" />
+    <SolidColorBrush x:Key="AccentBrush" Color="{ThemeResource SystemAccentColor}" />
+    <SolidColorBrush x:Key="ShadesLighter3AccentBrush" Color="{ThemeResource SystemAccentColorLight3}" />
+    <SolidColorBrush x:Key="ShadesLighter2AccentBrush" Color="{ThemeResource SystemAccentColorLight2}" />
+    <SolidColorBrush x:Key="ShadesLighter1AccentBrush" Color="{ThemeResource SystemAccentColorLight1}" />
+    <SolidColorBrush x:Key="ShadesDarker3AccentBrush" Color="{ThemeResource SystemAccentColorDark3}" />
+    <SolidColorBrush x:Key="ShadesDarker2AccentBrush" Color="{ThemeResource SystemAccentColorDark2}" />
+    <SolidColorBrush x:Key="ShadesDarker1AccentBrush" Color="{ThemeResource SystemAccentColorDark1}" />
+
+</ResourceDictionary>
+

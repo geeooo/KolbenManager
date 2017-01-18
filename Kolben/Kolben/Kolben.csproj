@@ -1,0 +1,411 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProjectGuid>{E52D6F8A-6C8E-4474-A7CA-3226EC718623}</ProjectGuid>
+    <OutputType>AppContainerExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Kolben</RootNamespace>
+    <AssemblyName>Kolben</AssemblyName>
+    <DefaultLanguage>fr</DefaultLanguage>
+    <TargetPlatformIdentifier>UAP</TargetPlatformIdentifier>
+    <TargetPlatformVersion>10.0.14393.0</TargetPlatformVersion>
+    <TargetPlatformMinVersion>10.0.10586.0</TargetPlatformMinVersion>
+    <MinimumVisualStudioVersion>14</MinimumVisualStudioVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{A5A43C5B-DE2A-4C0C-9213-0A381AF9435A};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <PackageCertificateKeyFile>Kolben_TemporaryKey.pfx</PackageCertificateKeyFile>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|ARM'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\ARM\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|ARM'">
+    <OutputPath>bin\ARM\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>ARM</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE;NETFX_CORE;WINDOWS_UWP</DefineConstants>
+    <Optimize>true</Optimize>
+    <NoWarn>;2008</NoWarn>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <UseVSHostingProcess>false</UseVSHostingProcess>
+    <ErrorReport>prompt</ErrorReport>
+    <Prefer32Bit>true</Prefer32Bit>
+    <UseDotNetNativeToolchain>true</UseDotNetNativeToolchain>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .Net Framework and Windows SDK are automatically included -->
+    <None Include="project.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Controller\BaseController.cs" />
+    <Compile Include="Controller\HomeController.cs" />
+    <Compile Include="Controller\Restaurant\NSCashRegister\TablesController.cs" />
+    <Compile Include="Controller\Restaurant\NSPurchases\AddPurchaseController.cs" />
+    <Compile Include="Controller\Restaurant\NSPurchases\PurchaseDetailController.cs" />
+    <Compile Include="Controller\Restaurant\NSPurchases\PurchasesController.cs" />
+    <Compile Include="Controller\Restaurant\NSProducts\AddProductController.cs" />
+    <Compile Include="Controller\Restaurant\NSProducts\ProductDetailController.cs" />
+    <Compile Include="Controller\Restaurant\NSProducts\ProductsController.cs" />
+    <Compile Include="Controller\Restaurant\NSRecipes\AddRecipeController.cs" />
+    <Compile Include="Controller\Restaurant\NSRecipes\RecipeDetailController.cs" />
+    <Compile Include="Controller\Restaurant\NSRecipes\RecipesController.cs" />
+    <Compile Include="Controller\Restaurant\NSAccountingAccount\AccountingAccountAddController.cs" />
+    <Compile Include="Controller\Restaurant\NSAccountingAccount\AccountingAccountController.cs" />
+    <Compile Include="Controller\Restaurant\NSAccountingAccount\AccountingAccountDetailController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountAddController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountDetailController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryAddController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryDetailController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofTVA\TypeofTVAAddController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofTVA\TypeofTVAController.cs" />
+    <Compile Include="Controller\Restaurant\Settings\NSTypeofTVA\TypeofTVADetailController.cs" />
+    <Compile Include="Controls\DynamicCommandBar.cs" />
+    <Compile Include="Controls\IconButton.cs" />
+    <Compile Include="AppShell.xaml.cs">
+      <DependentUpon>AppShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Converters\DatetimeToDatetimeOffSetConverter.cs" />
+    <Compile Include="Converters\EnumsToListStringConverter.cs" />
+    <Compile Include="Converters\DecimalToStringConverter.cs" />
+    <Compile Include="Converters\EuroSymbolConverter.cs" />
+    <Compile Include="Converters\SingleEnumItemToDictionnary.cs" />
+    <Compile Include="NavigationMenuItem.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SplitViewShell.xaml.cs">
+      <DependentUpon>SplitViewShell.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\ActionData.cs" />
+    <Compile Include="Utils\DateTimeHelper.cs" />
+    <Compile Include="Utils\EnumComboboxBinding.cs" />
+    <Compile Include="Utils\Enums\FilterDataType.cs" />
+    <Compile Include="Utils\Loader.cs" />
+    <Compile Include="Utils\PredicateBuilder.cs" />
+    <Compile Include="ViewModels\VMAccountingAccount.cs" />
+    <Compile Include="ViewModels\VMAccountingAccountEntry.cs" />
+    <Compile Include="ViewModels\VMAccountingAccountEntryDetail.cs" />
+    <Compile Include="ViewModels\VMProduct.cs" />
+    <Compile Include="ViewModels\VMPurchase.cs" />
+    <Compile Include="ViewModels\VMPurchaseDetail.cs" />
+    <Compile Include="ViewModels\VMRecipe.cs" />
+    <Compile Include="ViewModels\VMRecipeProduct.cs" />
+    <Compile Include="ViewModels\VMSettingMenuItem.cs" />
+    <Compile Include="ViewModels\VMStock.cs" />
+    <Compile Include="ViewModels\VMTable.cs" />
+    <Compile Include="ViewModels\VMTypeofAccountingAccount.cs" />
+    <Compile Include="ViewModels\VMTypeofProductCategory.cs" />
+    <Compile Include="ViewModels\VMTypeofTVA.cs" />
+    <Compile Include="Views\DashboardPage.xaml.cs">
+      <DependentUpon>DashboardPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Farm\FarmHomePage.xaml.cs">
+      <DependentUpon>FarmHomePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSCashRegister\AddConsomationPage.xaml.cs">
+      <DependentUpon>AddConsomationPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSCashRegister\TablesPage.xaml.cs">
+      <DependentUpon>TablesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSPurchases\AddPurchasePage.xaml.cs">
+      <DependentUpon>AddPurchasePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSPurchases\PurchaseDetailPage.xaml.cs">
+      <DependentUpon>PurchaseDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSPurchases\PurchasesPage.xaml.cs">
+      <DependentUpon>PurchasesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSProducts\AddProductPage.xaml.cs">
+      <DependentUpon>AddProductPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSProducts\ProductDetailPage.xaml.cs">
+      <DependentUpon>ProductDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSProducts\ProductsPage.xaml.cs">
+      <DependentUpon>ProductsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSRecipes\AddRecipePage.xaml.cs">
+      <DependentUpon>AddRecipePage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSRecipes\RecipeDetailPage.xaml.cs">
+      <DependentUpon>RecipeDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSRecipes\RecipesPage.xaml.cs">
+      <DependentUpon>RecipesPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSAccountingAccount\AccountingAccountAddPage.xaml.cs">
+      <DependentUpon>AccountingAccountAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSAccountingAccount\AccountingAccountDetailPage.xaml.cs">
+      <DependentUpon>AccountingAccountDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\NSAccountingAccount\AccountingAccountPage.xaml.cs">
+      <DependentUpon>AccountingAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountAddPage.xaml.cs">
+      <DependentUpon>TypeofAccountingAccountAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountDetailPage.xaml.cs">
+      <DependentUpon>TypeofAccountingAccountDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountPage.xaml.cs">
+      <DependentUpon>TypeofAccountingAccountPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryAddPage.xaml.cs">
+      <DependentUpon>TypeofProductCategoryAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryDetailPage.xaml.cs">
+      <DependentUpon>TypeofProductCategoryDetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryPage.xaml.cs">
+      <DependentUpon>TypeofProductCategoryPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofTVA\TypeofTVAAddPage.xaml.cs">
+      <DependentUpon>TypeofTVAAddPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofTVA\TypeofTVADetailPage.xaml.cs">
+      <DependentUpon>TypeofTVADetailPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\Restaurant\Settings\NSTypeofTVA\TypeofTVAPage.xaml.cs">
+      <DependentUpon>TypeofTVAPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <AppxManifest Include="Package.appxmanifest">
+      <SubType>Designer</SubType>
+    </AppxManifest>
+    <None Include="Kolben_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Assets\background.jpg" />
+    <Content Include="Properties\Default.rd.xml" />
+    <Content Include="Assets\LockScreenLogo.scale-200.png" />
+    <Content Include="Assets\SplashScreen.scale-200.png" />
+    <Content Include="Assets\Square150x150Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.scale-200.png" />
+    <Content Include="Assets\Square44x44Logo.targetsize-24_altform-unplated.png" />
+    <Content Include="Assets\StoreLogo.png" />
+    <Content Include="Assets\Wide310x150Logo.scale-200.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Page Include="AppShell.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="SplitViewShell.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Styles\Colors.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\Converters.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\OverridedStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Styles\Styles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Page>
+    <Page Include="Views\DashboardPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Farm\FarmHomePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSCashRegister\AddConsomationPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSCashRegister\TablesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSPurchases\AddPurchasePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSPurchases\PurchaseDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSPurchases\PurchasesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSProducts\AddProductPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSProducts\ProductDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSProducts\ProductsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSRecipes\AddRecipePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSRecipes\RecipeDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSRecipes\RecipesPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSAccountingAccount\AccountingAccountAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSAccountingAccount\AccountingAccountDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\NSAccountingAccount\AccountingAccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofAccountingAccount\TypeofAccountingAccountPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryDetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofProductCategory\TypeofProductCategoryPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofTVA\TypeofTVAAddPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofTVA\TypeofTVADetailPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\Restaurant\Settings\NSTypeofTVA\TypeofTVAPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KolbenService\KolbenService.csproj">
+      <Project>{6d5766cc-a20a-4e57-943d-b4a2b5cae433}</Project>
+      <Name>KolbenService</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Controller\Farm\" />
+  </ItemGroup>
+  <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '14.0' ">
+    <VisualStudioVersion>14.0</VisualStudioVersion>
+  </PropertyGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\WindowsXaml\v$(VisualStudioVersion)\Microsoft.Windows.UI.Xaml.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

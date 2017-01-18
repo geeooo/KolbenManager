@@ -1,0 +1,12 @@
+App.xbf
+AppShell.xbf
+Styles\Colors.xbf
+Styles\Converters.xbf
+Styles\OverridedStyles.xbf
+Styles\Styles.xbf
+Views\HomePage.xbf
+Views\Products\AddProductPage.xbf
+Views\Products\ProductPage.xbf
+Views\Products\ProductsPage.xbf
+Views\RecipesPage.xbf
+Views\StockPage.xbf
